@@ -158,7 +158,7 @@ def save_data(book, filename="addressbook.pkl"):
         pickle.dumb(book, f)
 
 
-def load_data(filename="addressbook.pkl"):
+def load_data_from_file(filename):
     try:
         with open(filename, "rb") as f:
             return pickle.load(f)
