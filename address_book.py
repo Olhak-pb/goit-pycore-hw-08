@@ -153,9 +153,9 @@ class AddressBook(UserDict):
             return "No contacts saved."
         return "\n".join(str(record) for record in self.data.values())
 
-def save_data(book, filename="addressbook.pkl"):
+def save_data_to_file(book, filename="addressbook.pkl"):
     with open(filename, "wb") as f:
-        pickle.dumb(book, f)
+        pickle.dump(book, f)
 
 
 def load_data_from_file(filename):

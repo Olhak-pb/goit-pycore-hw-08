@@ -108,7 +108,7 @@ def birthdays(args: list[str], book: AddressBook) -> str:
 
 def main() -> None:
     """Starts the assistant bot and manages the command processing loop"""
-    book = load_data_from_file(book)
+    book = load_data_from_file("addressbook.pkl")
 
     print("Welcome to the assistant bot!")
     while True:
