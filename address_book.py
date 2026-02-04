@@ -6,6 +6,8 @@ from collections import UserDict
 
 from datetime import datetime, date, timedelta
 
+import pickle
+
 class Field:
     """Base class for fields of a contact."""
     def __init__(self, value: str):
