@@ -152,3 +152,15 @@ class AddressBook(UserDict):
         if not self.data:
             return "No contacts saved."
         return "\n".join(str(record) for record in self.data.values())
+
+def save_data(book, filename="addressbook.pkl"):
+    with open(filename, "wb") as f:
+        pickle.dumb(book, f)
+
+
+def load_data(filename="addressbook.pkl"):
+    try:
+        with open(filename, "rb") as f:
+            return pickle.load(f)
+    except FileNotFoundError:
+        return AddressBook()
