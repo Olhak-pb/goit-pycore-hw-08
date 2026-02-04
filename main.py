@@ -1,6 +1,6 @@
 
 """A terminal-based assistant bot that allows users to add, change and view contacts"""
-from address_book import AddressBook, Record
+from address_book import AddressBook, Record, save_data_to_file, load_data_from_file
 
 
 def input_error(func):
@@ -108,7 +108,7 @@ def birthdays(args: list[str], book: AddressBook) -> str:
 
 def main() -> None:
     """Starts the assistant bot and manages the command processing loop"""
-    book = AddressBook()
+    book = load_data_from_file(book)
 
     print("Welcome to the assistant bot!")
     while True:
@@ -117,6 +117,7 @@ def main() -> None:
 
         if command in ("close", "exit"):
             print("Good bye!")
+            save_data_to_file(book)
             break
         elif command == "hello":
             print("How can I help you?")
